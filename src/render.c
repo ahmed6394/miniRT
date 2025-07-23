@@ -6,7 +6,7 @@
 /*   By: gahmed <gahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 16:43:32 by mmonika           #+#    #+#             */
-/*   Updated: 2025/07/22 15:01:33 by gahmed           ###   ########.fr       */
+/*   Updated: 2025/07/23 12:28:41 by gahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ t_vector	ray_res(t_mrt *mrt, double u, double v, t_vector uu_w)
 	double		hv[2];
 
 	r = v_norm(v_cross(&uu_w, &mrt->camera.normal));
-	uu = v_norm(v_cross(&r, &mrt->camera.normal));
+	uu = v_norm(v_cross(&mrt->camera.normal,&r));
 	set_background(mrt, &hv[0], &hv[1]);
 	slop[0] = (2 * u - 1) * (hv[0] / 2);
 	slop[1] = (1 - 2 * v) * (hv[1] / 2);
